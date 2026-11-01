@@ -33,7 +33,34 @@ body {
 /* ==========================================
    Page Preloader Styles
    ========================================== */
+/* ============================================================
+   TABLET PERFORMANCE OPTIMIZATION (Fixes lag on iPads & Tabs)
+   ============================================================ */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    
+    /* 1. Simplify heavy multi-layered box shadows on cards */
+    .vows-3d-card, 
+    .card, 
+    .card-3d {
+        box-shadow: 
+            0 12px 25px rgba(180, 145, 90, 0.18),
+            inset 0 1px 2px rgba(255, 255, 255, 0.9) !important;
+    }
 
+    /* 2. Remove or reduce expensive backdrop blur filters during scroll */
+    header, 
+    nav, 
+    .navbar {
+        backdrop-filter: blur(4px) !important;
+        -webkit-backdrop-filter: blur(4px) !important;
+        background: rgba(255, 253, 248, 0.92) !important;
+    }
+
+    /* 3. Pause or simplify background preloader pulses if causing startup stutter */
+    .preloader-bg-pulse {
+        animation-duration: 5s !important; /* slower = less CPU strain */
+    }
+}
 /* ============================================================
    MAGNIFICENT GOLD & SILVER PRELOADER (DEDICATED STYLES)
    ============================================================ */
