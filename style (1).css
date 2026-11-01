@@ -33,44 +33,7 @@ body {
 /* ==========================================
    Page Preloader Styles
    ========================================== */
-/* ============================================================
-   ONEPLUS PAD (OPD2481) & HIGH-RES TABLET OPTIMIZATION
-   ============================================================ */
-@media screen and (min-width: 768px) and (max-width: 1200px) {
 
-    /* 1. Hardware acceleration to prevent frame drops on 90Hz display */
-    .vows-3d-card, 
-    .preloader-overlay, 
-    .luxe-metal-btn {
-        transform: translateZ(0);
-        will-change: transform;
-    }
-
-    /* 2. Streamline heavy layered shadows for high-resolution rendering */
-    .vows-3d-card, 
-    .card, 
-    .card-3d {
-        box-shadow: 
-            0 12px 30px rgba(180, 145, 90, 0.2),
-            inset 0 1px 3px rgba(255, 255, 255, 0.9) !important;
-    }
-
-    /* 3. Disable GPU-heavy backdrop blur on navigation bar */
-    header, 
-    nav, 
-    .navbar {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        background: rgba(255, 253, 248, 0.96) !important;
-    }
-}
-/* Automatically reduces animation strain on low-battery/low-power phones */
-@media (prefers-reduced-motion: reduce) {
-    .royal-particle,
-    .preloader-bg-pulse {
-        animation: none !important;
-    }
-}
 /* ============================================================
    MAGNIFICENT GOLD & SILVER PRELOADER (DEDICATED STYLES)
    ============================================================ */
