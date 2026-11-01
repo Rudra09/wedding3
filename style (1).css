@@ -34,31 +34,41 @@ body {
    Page Preloader Styles
    ========================================== */
 /* ============================================================
-   TABLET PERFORMANCE OPTIMIZATION (Fixes lag on iPads & Tabs)
+   ONEPLUS PAD (OPD2481) & HIGH-RES TABLET OPTIMIZATION
    ============================================================ */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    
-    /* 1. Simplify heavy multi-layered box shadows on cards */
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+
+    /* 1. Hardware acceleration to prevent frame drops on 90Hz display */
+    .vows-3d-card, 
+    .preloader-overlay, 
+    .luxe-metal-btn {
+        transform: translateZ(0);
+        will-change: transform;
+    }
+
+    /* 2. Streamline heavy layered shadows for high-resolution rendering */
     .vows-3d-card, 
     .card, 
     .card-3d {
         box-shadow: 
-            0 12px 25px rgba(180, 145, 90, 0.18),
-            inset 0 1px 2px rgba(255, 255, 255, 0.9) !important;
+            0 12px 30px rgba(180, 145, 90, 0.2),
+            inset 0 1px 3px rgba(255, 255, 255, 0.9) !important;
     }
 
-    /* 2. Remove or reduce expensive backdrop blur filters during scroll */
+    /* 3. Disable GPU-heavy backdrop blur on navigation bar */
     header, 
     nav, 
     .navbar {
-        backdrop-filter: blur(4px) !important;
-        -webkit-backdrop-filter: blur(4px) !important;
-        background: rgba(255, 253, 248, 0.92) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(255, 253, 248, 0.96) !important;
     }
-
-    /* 3. Pause or simplify background preloader pulses if causing startup stutter */
+}
+/* Automatically reduces animation strain on low-battery/low-power phones */
+@media (prefers-reduced-motion: reduce) {
+    .royal-particle,
     .preloader-bg-pulse {
-        animation-duration: 5s !important; /* slower = less CPU strain */
+        animation: none !important;
     }
 }
 /* ============================================================
